@@ -5,8 +5,8 @@
             "label": "C/C++: clang++ build active file",
             "command": "/usr/bin/clang++",
             "args": [
-                "-I${workspaceFolder}/dependencies/include",
-                "-L${workspaceFolder}/dependencies/libraries",
+                "-I${workspaceFolder}/dependencies/include/",
+                "-L${workspaceFolder}/dependencies/libraries/",
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
                 "-g",
@@ -14,7 +14,13 @@
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
                 "-framework",
-                "OpenGL"
+                "Cocoa",
+                "-framework",
+                "OpenGL",
+                "-framework",
+                "IOKit",
+                "${workspaceFolder}/dependencies/libraries/libglfw.3.dylib",
+                "-Wl,-rpath,${workspaceFolder}/dependencies/libraries/"
             ],
             "options": {
                 "cwd": "${fileDirname}"
